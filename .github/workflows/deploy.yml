@@ -1,0 +1,22 @@
+name: deploy
+
+on: 
+  push:
+    branches: 
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: |
+          npm install
+          npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.BLOG_GITHUB_TOKEN}}
+          publish_branch: gh-pages
+          publish_dir: ./docs/.vuepress/dist

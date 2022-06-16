@@ -1,0 +1,21 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "start": "nodemon --ext md,vue,js --watch ./docs --watch ./docs/.vuepress --exec vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-nprogress": "^1.8.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "vuepress": "^1.8.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
